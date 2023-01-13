@@ -96,7 +96,7 @@ export class AddEmployeeComponent {
         ]),
       ],
       isActive: [ 
-        '',
+        false,
         Validators.compose([
           Validators.required
         ])
@@ -127,12 +127,13 @@ export class AddEmployeeComponent {
       id: 1,
       name: this.f['name'].value,
       mobile: this.f['mobile'].value,
-      joiningDate: this.f['joiningDate'].value,
+      joiningDate: new Date(this.f['joiningDate'].value),
       departmentId: this.f['deptname'].value,
       offeredSalary: this.f['offeredSalary'].value,
       isActive: this.f['isActive'].value
     };
-    this.snackBar.open('Add Product Successfully.', '', {
+    console.log('Add employee Data', data)
+    this.snackBar.open('Add Employee Successfully.', '', {
       duration: 500,
       verticalPosition: 'top',
       horizontalPosition: 'right',
@@ -144,12 +145,13 @@ export class AddEmployeeComponent {
       id: parseInt(id),
       name: this.f['name'].value,
       mobile: this.f['mobile'].value,
-      joiningDate: this.f['joiningDate'].value,
+      joiningDate: new Date(this.f['joiningDate'].value),
       departmentId: this.f['deptname'].value,
       offeredSalary: this.f['offeredSalary'].value,
       isActive: this.f['isActive'].value
     };
-    this.snackBar.open('Edit Product Successfully.', '', {
+    console.log('Edit Employee Data', data)
+    this.snackBar.open('Edit Employee Successfully.', '', {
       duration: 500,
       verticalPosition: 'top',
       horizontalPosition: 'right',

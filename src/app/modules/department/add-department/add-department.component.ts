@@ -57,7 +57,7 @@ export class AddDepartmentComponent {
         ]),
       ],
       isActive: [ 
-        '',
+        false,
         Validators.compose([
           Validators.required
         ])
@@ -89,6 +89,7 @@ export class AddDepartmentComponent {
       name: this.f['name'].value,
       isActive: this.f['isActive'].value
     };
+    console.log('Add department data', data)
     this.snackBar.open('Add Department Successfully.', '', {
       duration: 500,
       verticalPosition: 'top',
@@ -102,6 +103,7 @@ export class AddDepartmentComponent {
       name: this.f['name'].value,
       isActive: this.f['isActive'].value
     };
+    console.log('Edit Department Data', data)
     this.snackBar.open('Edit Department Successfully.', '', {
       duration: 500,
       verticalPosition: 'top',
