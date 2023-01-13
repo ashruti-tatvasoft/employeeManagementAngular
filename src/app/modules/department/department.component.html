@@ -1,0 +1,69 @@
+<app-header></app-header>
+<div>
+  <div style="margin: 2%">
+    <button
+      mat-stroked-button
+      routerLink="/department/add-department"
+      style="background: #3f51b5; color: white"
+    >
+      Add Department
+    </button>
+  </div>
+  <div>
+    <mat-table [dataSource]="dataList" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef [ngClass]="'w-75'">
+          id
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" [ngClass]="'w-75'" [ngStyle]="{color: element.isActive == true ? 'Green' : 'Red'}">
+          {{ element.id }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef> IsActive </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ getStatus(element.isActive) }} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button
+            class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"
+            style="margin-right: 5px"
+            routerLink="/employee/edit-employee"
+            [queryParams]="{ mode: ['edit'], departmentId: [element.id] }"
+          >
+            <mat-icon
+              aria-hidden="false"
+              aria-label="Example create icon"
+              fontIcon="create"
+            ></mat-icon>
+          </button>
+          <button
+            class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm"
+            (click)="openDialog(element.id)"
+          >
+            <mat-icon
+              aria-hidden="false"
+              aria-label="Example delete icon"
+              fontIcon="delete"
+            ></mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of department"
+    >
+    </mat-paginator>
+  </div>
+</div>

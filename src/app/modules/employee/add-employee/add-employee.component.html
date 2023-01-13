@@ -1,0 +1,55 @@
+<app-header></app-header>
+<div class="employee-wrapper" >
+  <mat-card class="product-box">
+    <mat-card-header *ngIf="!id">
+      <mat-card-title>Add Employee</mat-card-title>
+    </mat-card-header>
+    <mat-card-header *ngIf="id">
+      <mat-card-title>Edit Employee</mat-card-title>
+    </mat-card-header>
+    <form class="example-form" [formGroup]="employeeForm" (ngSubmit) = "onSubmit(id)">
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Name" formControlName='name' name='name' />
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Mobile</mat-label>
+          <input matInput placeholder="Mobile" formControlName='mobile' name='mobile' />
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Select Department</mat-label>
+          <mat-select formControlName="deptname" >
+            <mat-option *ngFor="let dept of department" [value]="dept.id">
+              {{dept.name}}
+            </mat-option>
+          </mat-select>        
+        </mat-form-field>
+        
+        <mat-form-field class="example-full-width">
+          <mat-label>Joining Date</mat-label>
+          <input matInput placeholder="Joining Date" formControlName='joiningDate' name='joiningDate' [matDatepicker]="picker"/>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Offered Salary</mat-label>
+          <input matInput placeholder="Offered Salary" formControlName='offeredSalary' name='offeredSalary' />
+        </mat-form-field>
+        <!-- <mat-form-field class="example-full-width"> -->
+          <!-- <mat-label>Is Active</mat-label> -->
+          <mat-slide-toggle formControlName="isActive">Is Active?</mat-slide-toggle>
+        <!-- </mat-form-field> -->
+      </mat-card-content>
+      <button mat-stroked-button type = 'submit' color="accent" class="btn-block" *ngIf="!id">
+        Add
+      </button>
+      <button mat-stroked-button type = 'submit' color="accent" class="btn-block" *ngIf="id">
+        Edit
+      </button>
+      <button mat-stroked-button type = 'submit' color="accent" class="btn-block" style="margin-right: 30px;" (click) = "cancel()">
+        Cancel
+      </button>
+    </form>
+  </mat-card>
+</div>

@@ -1,0 +1,29 @@
+<app-header></app-header>
+<div class="department-wrapper" >
+  <mat-card class="product-box">
+    <mat-card-header *ngIf="!id">
+      <mat-card-title>Add Department</mat-card-title>
+    </mat-card-header>
+    <mat-card-header *ngIf="id">
+      <mat-card-title>Edit Department</mat-card-title>
+    </mat-card-header>
+    <form class="example-form" [formGroup]="departmentForm" (ngSubmit) = "onSubmit(id)">
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Name" formControlName='name' name='name' />
+        </mat-form-field>
+        <mat-slide-toggle formControlName="isActive">Is Active?</mat-slide-toggle>
+      </mat-card-content>
+      <button mat-stroked-button type = 'submit' color="accent" class="btn-block" *ngIf="!id">
+        Add
+      </button>
+      <button mat-stroked-button type = 'submit' color="accent" class="btn-block" *ngIf="id">
+        Edit
+      </button>
+      <button mat-stroked-button type = 'submit' color="accent" class="btn-block" style="margin-right: 30px;" (click) = "cancel()">
+        Cancel
+      </button>
+    </form>
+  </mat-card>
+</div>
