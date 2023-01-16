@@ -3,10 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs';
-import { EmployeeService } from '../list-employee/employee.service';
+import { EmployeeService } from '../../services/employee.service';
 import { employeeModel, employeeRequestModel } from '../../models/employee.model';
-import { departmentModel } from '../../models/department.model';
-import { DepartmentService } from '../../department/list-department/department.service';
+import { departmentModel } from '../../../department/models/department.model';
+import { DepartmentService } from '../../../department/services/department.service';
 
 @Component({
   selector: 'app-add-employee',

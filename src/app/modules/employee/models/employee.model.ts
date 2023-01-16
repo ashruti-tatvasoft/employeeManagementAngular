@@ -1,4 +1,4 @@
-import { departmentModel } from "./department.model";
+import { departmentModel } from "../../department/models/department.model";
 
 export class employeeModel {
   id: number;

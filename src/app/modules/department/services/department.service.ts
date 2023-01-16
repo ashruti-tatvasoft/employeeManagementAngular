@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, pluck } from 'rxjs';
-import {departmentModel } from '../../models/department.model';
+import {departmentModel } from '../models/department.model';
 import * as departmentData from '../../../../assets/department-list.json';
 @Injectable({
   providedIn: 'root'

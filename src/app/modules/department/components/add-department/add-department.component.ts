@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs';
 import { departmentModel } from '../../models/department.model';
-import { DepartmentService } from '../list-department/department.service';
+import { DepartmentService } from '../../services/department.service';
 
 @Component({
   selector: 'app-add-department',

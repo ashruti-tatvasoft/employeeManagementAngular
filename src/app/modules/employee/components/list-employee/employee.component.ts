@@ -4,8 +4,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { first } from 'rxjs';
-import { ConfirmDialogModel, DialogComponent } from '../../common/dialog/dialog.component';
-import { EmployeeService } from './employee.service';
+import { ConfirmDialogModel, DialogComponent } from '../../../shared/component/dialog/dialog.component';
+import { EmployeeService } from '../../services/employee.service';
 
 @Component({
   selector: 'app-employee',

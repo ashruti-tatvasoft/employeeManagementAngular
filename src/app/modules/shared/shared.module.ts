@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HeaderComponent } from '../common/header/header.component';
+import { HeaderComponent } from './component/header/header.component';
 import { AngularMaterialModule } from './angular-material.module';
 import { RouterModule } from '@angular/router';
-import { StatusPipe } from '../common/custom/status.pipe';
-import { LayoutComponent } from '../common/layout/layout.component';
-import { ChangeColorDirective } from '../common/custom/change-color.directive';
-import { DialogComponent } from '../common/dialog/dialog.component';
+import { StatusPipe } from './pipe/status.pipe';
+import { LayoutComponent } from './component/layout/layout.component';
+import { ChangeColorDirective } from './directive/change-color.directive';
+import { DialogComponent } from './component/dialog/dialog.component';
 
 
 
