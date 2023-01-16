@@ -24,7 +24,7 @@ export class AddDepartmentComponent {
   ) {}
   ngOnInit() {
     this.validateForm();
-      this.id = this.route.snapshot.queryParamMap.get('employeeId');
+      this.id = this.route.snapshot.paramMap.get('id');
       this.id !== null ? this.getDepartmentData(this.id) : '';
   }
   // convenience getter for easy access to form fields

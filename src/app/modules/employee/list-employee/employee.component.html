@@ -64,8 +64,7 @@
           <button
             class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"
             style="margin-right: 5px"
-            routerLink="/employee/edit-employee"
-            [queryParams]="{ mode: ['edit'], employeeId: [element.id] }"
+            [routerLink]="['/employee/edit-employee', element.id]"
           >
             <mat-icon
               aria-hidden="false"

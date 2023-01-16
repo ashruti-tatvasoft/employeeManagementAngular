@@ -9,7 +9,7 @@ const routes: Routes = [
     children: [
       { path: '', component: EmployeeComponent, pathMatch: 'full', title: 'Employee' },
       { path: 'add-employee', component: AddEmployeeComponent, title: 'AddEmployee'},
-      { path: 'edit-employee', component: AddEmployeeComponent, title: 'EditEmployee'}
+      { path: 'edit-employee/:id', component: AddEmployeeComponent, title: 'EditEmployee'}
     ],
   },
 ];

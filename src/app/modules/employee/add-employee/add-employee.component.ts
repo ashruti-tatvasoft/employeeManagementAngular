@@ -28,7 +28,7 @@ export class AddEmployeeComponent {
   ) {}
   ngOnInit() {
     this.validateForm();
-      this.id = this.route.snapshot.queryParamMap.get('employeeId');
+      this.id = this.route.snapshot.paramMap.get('id');
       this.id !== null ? this.getEmployeeData(this.id) : '';
       this.getDepartment();
   }
@@ -52,18 +52,12 @@ export class AddEmployeeComponent {
         this.employeeData = employeeValue
     });
     const employee = this.employeeData.find((employee) => employee.id == parseInt(id))
-    console.log(employee)
     if(employee) {
       employee.departmentId = employee.department.id;
       employee.joiningDate = new Date(employee.joiningDate)
       employee.deptname = employee.department.id;
       this.employeeForm.patchValue(employee);
     }
-    // this.employeeData.map((employee) => {
-    //   if(employee.id == parseInt(id)){
-        // return employee
-    //   }
-    // })
   }
   validateForm() {
     this.employeeForm = this.fb.group({
