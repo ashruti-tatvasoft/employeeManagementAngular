@@ -3,10 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs';
-import { EmployeeService } from '../employee.service';
-import { employeeModel } from '../../models/employee.model';
+import { EmployeeService } from '../list-employee/employee.service';
+import { employeeModel, employeeRequestModel } from '../../models/employee.model';
 import { departmentModel } from '../../models/department.model';
-import { DepartmentService } from '../../department/department.service';
+import { DepartmentService } from '../../department/list-department/department.service';
 
 @Component({
   selector: 'app-add-employee',
@@ -41,9 +41,7 @@ export class AddEmployeeComponent {
     .deparmentList()
     .pipe(first())
     .subscribe((departmentValue) => {
-      if (departmentValue.status === 200) {
-        this.department = departmentValue.data
-      }
+      this.department = departmentValue
     });
   }
   getEmployeeData(id: string){
@@ -51,15 +49,21 @@ export class AddEmployeeComponent {
     .employeeList()
     .pipe(first())
     .subscribe((employeeValue) => {
-      if (employeeValue.status === 200) {
-        this.employeeData = employeeValue.data
-      }
+        this.employeeData = employeeValue
     });
-    this.employeeData.map((employee) => {
-      if(employee.id == parseInt(id)){
-        this.employeeForm.patchValue(employee);
-      }
-    })
+    const employee = this.employeeData.find((employee) => employee.id == parseInt(id))
+    console.log(employee)
+    if(employee) {
+      employee.departmentId = employee.department.id;
+      employee.joiningDate = new Date(employee.joiningDate)
+      employee.deptname = employee.department.id;
+      this.employeeForm.patchValue(employee);
+    }
+    // this.employeeData.map((employee) => {
+    //   if(employee.id == parseInt(id)){
+        // return employee
+    //   }
+    // })
   }
   validateForm() {
     this.employeeForm = this.fb.group({
@@ -123,7 +127,7 @@ export class AddEmployeeComponent {
     }
   }
   addProduct() {
-    const data: employeeModel = {
+    const data: employeeRequestModel = {
       id: 1,
       name: this.f['name'].value,
       mobile: this.f['mobile'].value,
@@ -141,7 +145,7 @@ export class AddEmployeeComponent {
     this.router.navigate(['employee']);
   }
   editProduct(id: string) {
-    const data: employeeModel = {
+    const data: employeeRequestModel = {
       id: parseInt(id),
       name: this.f['name'].value,
       mobile: this.f['mobile'].value,

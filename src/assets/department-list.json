@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Development",
+    "isActive": true
+  },
+  {
+    "id": 2,
+    "name": "Design",
+    "isActive": false
+  },
+  {
+    "id": 3,
+    "name": "BDA",
+    "isActive": true
+  },
+  {
+    "id": 4,
+    "name": "HR",
+    "isActive": false
+  },
+  {
+    "id": 5,
+    "name": "Admin",
+    "isActive": true
+  },
+  {
+    "id": 6,
+    "name": "Account",
+    "isActive": true
+  }
+]

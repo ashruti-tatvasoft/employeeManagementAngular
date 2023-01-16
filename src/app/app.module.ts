@@ -10,12 +10,16 @@ import { AngularMaterialModule } from './modules/shared/angular-material.module'
 import { EmployeeModule } from './modules/employee/employee.module';
 import { DepartmentModule } from './modules/department/department.module';
 import { DialogComponent } from './modules/common/dialog/dialog.component';
+// import { ChangeColorDirective } from './modules/common/custom/change-color.directive';
+// import { LayoutComponent } from './modules/common/layout/layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    DialogComponent
+    DialogComponent,
+    // ChangeColorDirective,
+    // LayoutComponent
   ],
   imports: [
     BrowserModule,

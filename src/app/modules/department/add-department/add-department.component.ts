@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs';
 import { departmentModel } from '../../models/department.model';
-import { DepartmentService } from '../department.service';
+import { DepartmentService } from '../list-department/department.service';
 
 @Component({
   selector: 'app-add-department',
@@ -36,9 +36,7 @@ export class AddDepartmentComponent {
     .deparmentList()
     .pipe(first())
     .subscribe((departmentValue) => {
-      if (departmentValue.status === 200) {
-        this.departmentData = departmentValue.data
-      }
+      this.departmentData = departmentValue
     });
     this.departmentData.map((department) => {
       if(department.id == parseInt(id)){
