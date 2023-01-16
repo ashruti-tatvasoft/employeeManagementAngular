@@ -37,12 +37,12 @@ export class AddDepartmentComponent {
     .pipe(first())
     .subscribe((departmentValue) => {
       this.departmentData = departmentValue
+      this.departmentData.map((department) => {
+        if(department.id == parseInt(id)){
+          this.departmentForm.patchValue(department);
+        }
+      })
     });
-    this.departmentData.map((department) => {
-      if(department.id == parseInt(id)){
-        this.departmentForm.patchValue(department);
-      }
-    })
   }
   validateForm() {
     this.departmentForm = this.fb.group({

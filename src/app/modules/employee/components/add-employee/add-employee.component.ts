@@ -44,20 +44,20 @@ export class AddEmployeeComponent {
       this.department = departmentValue
     });
   }
-  getEmployeeData(id: string){
-    this.employeeService
+  async getEmployeeData(id: string){
+    await this.employeeService
     .employeeList()
     .pipe(first())
     .subscribe((employeeValue) => {
         this.employeeData = employeeValue
+        const employee = this.employeeData.find((employee) => employee.id == parseInt(id))
+        if(employee) {
+          employee.departmentId = employee.department.id;
+          employee.joiningDate = new Date(employee.joiningDate)
+          employee.deptname = employee.department.id;
+          this.employeeForm.patchValue(employee);
+        }
     });
-    const employee = this.employeeData.find((employee) => employee.id == parseInt(id))
-    if(employee) {
-      employee.departmentId = employee.department.id;
-      employee.joiningDate = new Date(employee.joiningDate)
-      employee.deptname = employee.department.id;
-      this.employeeForm.patchValue(employee);
-    }
   }
   validateForm() {
     this.employeeForm = this.fb.group({

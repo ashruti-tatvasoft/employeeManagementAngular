@@ -36,7 +36,6 @@ export class DepartmentComponent {
       .deparmentList()
       .pipe(first())
       .subscribe((departmentData) => {
-        console.log(departmentData)
           this.snackBar.open('Department Listed', '', {
             duration: 500,
             verticalPosition: 'top',

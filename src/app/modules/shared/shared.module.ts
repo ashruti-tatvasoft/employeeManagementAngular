@@ -7,6 +7,7 @@ import { StatusPipe } from './pipe/status.pipe';
 import { LayoutComponent } from './component/layout/layout.component';
 import { ChangeColorDirective } from './directive/change-color.directive';
 import { DialogComponent } from './component/dialog/dialog.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -16,6 +17,7 @@ import { DialogComponent } from './component/dialog/dialog.component';
     AngularMaterialModule,
     RouterModule,
     FormsModule,
+    HttpClientModule
   ],
   exports: [
     AngularMaterialModule,
@@ -26,6 +28,7 @@ import { DialogComponent } from './component/dialog/dialog.component';
     ChangeColorDirective,
     DialogComponent,
     StatusPipe,
+    HttpClientModule,
     ReactiveFormsModule,
   ]
 })
