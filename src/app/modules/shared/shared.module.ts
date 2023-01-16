@@ -6,11 +6,12 @@ import { RouterModule } from '@angular/router';
 import { StatusPipe } from '../common/custom/status.pipe';
 import { LayoutComponent } from '../common/layout/layout.component';
 import { ChangeColorDirective } from '../common/custom/change-color.directive';
+import { DialogComponent } from '../common/dialog/dialog.component';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, LayoutComponent, StatusPipe, ChangeColorDirective],
+  declarations: [HeaderComponent, LayoutComponent, StatusPipe, ChangeColorDirective, DialogComponent],
   imports: [
     AngularMaterialModule,
     RouterModule,
@@ -23,6 +24,7 @@ import { ChangeColorDirective } from '../common/custom/change-color.directive';
     HeaderComponent,
     LayoutComponent,
     ChangeColorDirective,
+    DialogComponent,
     StatusPipe,
     ReactiveFormsModule,
   ]
