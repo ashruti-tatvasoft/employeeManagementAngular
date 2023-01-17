@@ -10,7 +10,8 @@
     </button>
   </div>
   <div>
-    <mat-table [dataSource]="dataList" class="mat-elevation-z8">
+    <app-app-grid [gridOptions]="gridOptions"></app-app-grid>
+    <!-- <mat-table [dataSource]="dataList" class="mat-elevation-z8">
       <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef [ngClass]="'w-75'">
           id
@@ -93,6 +94,6 @@
       showFirstLastButtons
       aria-label="Select page of employee"
     >
-    </mat-paginator>
+    </mat-paginator> -->
   </div>
 </div>

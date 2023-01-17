@@ -1,4 +1,3 @@
-<!-- <app-header></app-header> -->
 <div>
   <div style="margin: 2%">
     <button
@@ -9,7 +8,8 @@
       Add Department
     </button>
   </div>
-  <div>
+  <app-app-grid [gridOptions]="gridOptions"></app-app-grid>
+  <!-- <div>
     <mat-table [dataSource]="dataList" class="mat-elevation-z8">
       <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef [ngClass]="'w-75'">
@@ -64,5 +64,5 @@
       aria-label="Select page of department"
     >
     </mat-paginator>
-  </div>
+  </div> -->
 </div>

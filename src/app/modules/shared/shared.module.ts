@@ -8,12 +8,15 @@ import { LayoutComponent } from './component/layout/layout.component';
 import { ChangeColorDirective } from './directive/change-color.directive';
 import { DialogComponent } from './component/dialog/dialog.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AppGridComponent } from '../app-grid/component/app-grid.component';
+import { CommonModule } from '@angular/common';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, LayoutComponent, StatusPipe, ChangeColorDirective, DialogComponent],
+  declarations: [HeaderComponent, LayoutComponent, StatusPipe, ChangeColorDirective, DialogComponent, AppGridComponent],
   imports: [
+    CommonModule,
     AngularMaterialModule,
     RouterModule,
     FormsModule,
@@ -23,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     AngularMaterialModule,
     FormsModule,
     RouterModule,
+    AppGridComponent,
     HeaderComponent,
     LayoutComponent,
     ChangeColorDirective,

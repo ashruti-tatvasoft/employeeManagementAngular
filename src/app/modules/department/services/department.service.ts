@@ -10,18 +10,8 @@ export class DepartmentService {
 
   isLoadingSubject: BehaviorSubject<boolean>;
   constructor(private http: HttpClient) {}
-  deparmentList(): Observable<departmentModel[]> {
+  deparmentList(){
     const url = `${environment.jsonLoad}/department-list.json`;
-    return this.http.get<any>(url).pipe(map((data) => {
-      if (data) {
-        return data;
-      }
-      return;
-    }),
-    catchError((err) => {
-      return of(err.error);
-    }),
-    finalize(() => this.isLoadingSubject.next(false))
-  );
+    return this.http.get<any>(url);
   }
 }
